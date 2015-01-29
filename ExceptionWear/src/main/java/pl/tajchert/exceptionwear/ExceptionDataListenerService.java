@@ -32,18 +32,18 @@ public class ExceptionDataListenerService extends WearableListenerService {
         ByteArrayInputStream bis = new ByteArrayInputStream(map.getByteArray("exception"));
         try {
             ObjectInputStream ois = new ObjectInputStream(bis);
-            Throwable ex = (Throwable) ois.readObject();
+            Throwable throwableException = (Throwable) ois.readObject();
 
             if(mExceptionWearHandler != null){
-                mExceptionWearHandler.handleException(ex, map);
+                mExceptionWearHandler.handleException(throwableException, map);
             } else {
-                Log.e(WearExceptionTools.EXCEPTION_WEAR_TAG, "Error from Wear" + ex.getMessage()
+                Log.e(WearExceptionTools.EXCEPTION_WEAR_TAG, "Error from Wear: " + throwableException.getMessage()
                         + ", manufacturer: " + map.getString("manufacturer")
                         + ", model: " + map.getString("model")
                         + ", product: " + map.getString("product")
                         + ", board: " + map.getString("board")
-                        + ", fingerprint: " + map.getString("fingerprint")
-                        + ", stack trace: " + Log.getStackTraceString(ex));
+                        + ", fingerprint: " + map.getString("fingerprint"));
+                throw new RuntimeException(throwableException);
             }
 
         } catch (IOException e) {

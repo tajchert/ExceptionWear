@@ -4,20 +4,20 @@ ExceptionWear - library for handling Exceptions on Android Wear
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/pl.tajchert/exceptionwear/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/pl.tajchert/exceptionwear)
 
 
-ExceptionWear (:exclamation::watch:) is very simple library to solve problem of not passing exceptions from Android Wear devices to the phone. So if you release an app for smartwatches to Google Play and it will crash (and it will) you won't get any information about it.
+ExceptionWear (:exclamation::watch:) is very simple library to solve problem of not passing exceptions from Android Wear devices to the phone. So if you release an app for smartwatches to Google Play and it will crash (and it will) you won't get any information about it (sic!).
 
 ###How to start?
-To start with handling your exceptions, all you need is to add one line to `Application` class on Wear device. From now on all your exceptions from smartwatch will be shown in Logcat (:evergreen_tree::cat2:) on the phone.
+To start with handling your exceptions, all you need is to add one line to `Application` class on Wear device. From now on all your exceptions from smartwatch will be thrown as well on the phone. Plus you can add custom handlers for them!
 
 ###Custom Handler
-After receiving exception on a phone you can throw it, save it for any crash reporting app etc. - just add own class that `implements ExceptionWearHandler` and set using `ExceptionDataListenerService.setHandler()` before receiving a crash.
+After receiving exception on a phone you can send a email with log, save it for any crash reporting app etc. - just add own class that `implements ExceptionWearHandler` and set using `ExceptionDataListenerService.setHandler()` before receiving a crash.
 
 ###Add ExceptionWear to your project
 
 Gradle:
 ```gradle
     //library:
-    compile 'pl.tajchert:exceptionwear:0.1.1'
+    compile 'pl.tajchert:exceptionwear:0.1.2'
     //needed dependency:
     compile 'com.google.android.gms:play-services-wearable:+'
 ```
@@ -28,7 +28,7 @@ Maven:
 <dependency>
     <groupId>pl.tajchert</groupId>
     <artifactId>exceptionwear</artifactId>
-    <version>0.1.1</version>
+    <version>0.1.2</version>
 </dependency>
 ```
 
@@ -53,7 +53,7 @@ public class PhoneApplication extends Application {
     }
 }
 ```
-Other sample handlers are already implemented in sample project. There are: Log only handler, sending email, Crashlytics handler, and one that will just trow same error as on the watch.
+Other sample handlers are already implemented in sample project. There are: Log only handler, sending email, Crashlytics handler.
 
 ###License
 

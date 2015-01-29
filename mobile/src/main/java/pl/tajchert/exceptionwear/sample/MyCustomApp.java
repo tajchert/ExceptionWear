@@ -12,5 +12,7 @@ public class MyCustomApp extends Application {
         super.onCreate();
         CustomHandlerMail customHandlerMail = new CustomHandlerMail(this, "cool@email.com", "Error on Wear device");
         ExceptionDataListenerService.setHandler(customHandlerMail);
+        //ExceptionDataListenerService.setHandler(new CustomHandlerCrashlytics());
+        //ExceptionDataListenerService.setHandler(new CustomHandlerLog());
     }
 }
