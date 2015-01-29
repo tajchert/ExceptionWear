@@ -24,9 +24,7 @@ public class ExceptionWearApp {
             }
             Log.d(TAG, "uncaughtException :" + ex.getMessage());
             // Pass the exception to a Service which will send the data upstream to your Smartphone/Tablet
-            Intent errorIntent = new Intent(mContext, ExceptionService.class);
-            errorIntent.putExtra("exception", ex);
-            mContext.startService(errorIntent);
+            ExceptionService.reportException(mContext, ex);
 
             // Let the default UncaughtExceptionHandler take it from here
             mDefaultUEH.uncaughtException(thread, ex);

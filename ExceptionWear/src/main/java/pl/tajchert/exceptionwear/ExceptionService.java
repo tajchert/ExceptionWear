@@ -1,6 +1,7 @@
 package pl.tajchert.exceptionwear;
 
 import android.app.IntentService;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.util.Log;
@@ -15,13 +16,15 @@ import pl.tajchert.exceptionwear.wear.SendByteArrayToNode;
 
 
 public class ExceptionService extends IntentService {
-    private static final String TAG = "ExceptionService";
+    private static final String TAG = ExceptionService.class.getSimpleName();
+
+    private static final String EXTRA_EXCEPTION = TAG + "/EXTRA_EXCEPTION";
+
     private ByteArrayOutputStream bos;
     private ObjectOutputStream oos;
 
-
     public ExceptionService() {
-        super("ErrorService");
+        super(TAG);
     }
 
     @Override
@@ -49,7 +52,7 @@ public class ExceptionService extends IntentService {
         bos = new ByteArrayOutputStream();
         try {
             oos = new ObjectOutputStream(bos);
-            oos.writeObject(intent.getSerializableExtra("exception"));
+            oos.writeObject(intent.getSerializableExtra(EXTRA_EXCEPTION));
         } catch (IOException e) {
             Log.e(TAG, "createExceptionInformation error while getting exception information.");
         }
@@ -67,5 +70,11 @@ public class ExceptionService extends IntentService {
         dataMap.putByteArray("exception", exceptionData);
 
         return dataMap;
+    }
+
+    public static void reportException(Context context, Throwable ex) {
+        Intent errorIntent = new Intent(context, ExceptionService.class);
+        errorIntent.putExtra(EXTRA_EXCEPTION, ex);
+        context.startService(errorIntent);
     }
 }
