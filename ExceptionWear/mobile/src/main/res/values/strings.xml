@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ExceptionWear</string>
+    <string name="title_activity_main">Exception Wear Sample</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 </resources>

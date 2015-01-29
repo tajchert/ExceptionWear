@@ -8,12 +8,18 @@
         android:name="com.google.android.gms.version"
         android:value="@integer/google_play_services_version" />
 
-    <service android:name="pl.tajchert.exceptionwear.EventCatcher"
+    <service
+        android:name="pl.tajchert.exceptionwear.ExceptionDataListenerService"
         tools:node="replace"  >
         <intent-filter>
             <action android:name="com.google.android.gms.wearable.BIND_LISTENER" />
         </intent-filter>
     </service>
+
+    <service
+        android:name="pl.tajchert.exceptionwear.ExceptionService"
+        android:process=":error"
+        tools:node="replace"/>
 
 </application>
 
