@@ -44,7 +44,7 @@ public class WearableApplication extends Application {
     }
 }
 ```
-Phone (optional if you need custom handler):
+Phone (for custom handler):
 ```java
 public class PhoneApplication extends Application {
     public void onCreate() {
@@ -53,6 +53,7 @@ public class PhoneApplication extends Application {
     }
 }
 ```
+Other sample handlers are already implemented in sample project. There are: Log only handler, Crashlytics handler, and one that will just trow same error as on the watch.
 
 ###License
 

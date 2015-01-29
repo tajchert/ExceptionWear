@@ -2,7 +2,8 @@ package pl.tajchert.exceptionwear.sample;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.Handler;
+import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
@@ -10,17 +11,13 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
+        final TextView clickToSend = (TextView) findViewById(R.id.textViewClickToSend);
+        clickToSend.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
+            public void onClick(View v) {
                 throw new RuntimeException("Some unexpected expection!");
             }
-        }, 300);
+        });
     }
 }

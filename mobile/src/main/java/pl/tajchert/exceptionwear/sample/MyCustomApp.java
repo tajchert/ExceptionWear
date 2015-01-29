@@ -10,6 +10,6 @@ public class MyCustomApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        ExceptionDataListenerService.setHandler(new CustomLocalExceptionHandler());
+        ExceptionDataListenerService.setHandler(new CustomHandlerThrow());
     }
 }

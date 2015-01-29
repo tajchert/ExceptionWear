@@ -7,12 +7,12 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="Exception Wear"
         android:name=".WearableApp"
         android:theme="@android:style/Theme.DeviceDefault" >
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main" >
+            android:label="Exception Wear" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

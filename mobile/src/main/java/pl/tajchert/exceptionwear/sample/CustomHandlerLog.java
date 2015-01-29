@@ -6,13 +6,18 @@ import com.google.android.gms.wearable.DataMap;
 
 import pl.tajchert.exceptionwear.ExceptionWearHandler;
 
-
-public class CustomLocalExceptionHandler implements ExceptionWearHandler{
-    private static final String TAG = "CustomLocalException";
+/**
+ * Sample Handler to show how to handle exception from Wear, it will only print an error.
+ */
+public class CustomHandlerLog implements ExceptionWearHandler{
+    private static final String TAG = "ErrorHandlerLog";
 
     @Override
+    /**
+     * Exception handler with only showing in logcat.
+     */
     public void handleException(Throwable throwable, DataMap map) {
-        Log.e(TAG, "Error from Wear" + throwable.getMessage()
+        Log.e(TAG, "Received exception from Wear" + throwable.getMessage()
                 + ", manufacturer: " + map.getString("manufacturer")
                 + ", model: " + map.getString("model")
                 + ", product: " + map.getString("product")

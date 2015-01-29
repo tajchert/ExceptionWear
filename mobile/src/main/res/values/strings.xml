@@ -2,6 +2,5 @@
     <string name="app_name">ExceptionWear</string>
     <string name="title_activity_main">Exception Wear Sample</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="hello_world">Start sample app on Wear device and click on its screen to cause an exception. </string>
 </resources>
