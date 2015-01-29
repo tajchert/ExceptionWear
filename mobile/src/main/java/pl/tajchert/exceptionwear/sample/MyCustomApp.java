@@ -10,6 +10,7 @@ public class MyCustomApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        ExceptionDataListenerService.setHandler(new CustomHandlerThrow());
+        CustomHandlerMail customHandlerMail = new CustomHandlerMail(this, "cool@email.com", "Error on Wear device");
+        ExceptionDataListenerService.setHandler(customHandlerMail);
     }
 }

@@ -53,7 +53,7 @@ public class PhoneApplication extends Application {
     }
 }
 ```
-Other sample handlers are already implemented in sample project. There are: Log only handler, Crashlytics handler, and one that will just trow same error as on the watch.
+Other sample handlers are already implemented in sample project. There are: Log only handler, sending email, Crashlytics handler, and one that will just trow same error as on the watch.
 
 ###License
 
