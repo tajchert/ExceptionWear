@@ -12,6 +12,7 @@ import java.io.ObjectInputStream;
 
 public class ExceptionDataListenerService extends WearableListenerService {
     private static final String TAG = "WearDataListenerService";
+    private static ExceptionWearHandler mExceptionWearHandler;
 
     @Override
     public void onCreate() {
@@ -31,17 +32,27 @@ public class ExceptionDataListenerService extends WearableListenerService {
         try {
             ObjectInputStream ois = new ObjectInputStream(bis);
             Throwable ex = (Throwable) ois.readObject();
-            Log.e(TAG, "Error from Wear" + ex.getMessage()
-                    + ", manufacturer: " + map.getString("manufacturer")
-                    + ", model: " + map.getString("model")
-                    + ", product: " + map.getString("product")
-                    + ", board: " + map.getString("board")
-                    + ", fingerprint: " + map.getString("fingerprint")
-                    + ", stack trace: " + Log.getStackTraceString(ex));
+
+            if(mExceptionWearHandler != null){
+                mExceptionWearHandler.handleException(ex, map);
+            } else {
+                Log.e(TAG, "Error from Wear" + ex.getMessage()
+                        + ", manufacturer: " + map.getString("manufacturer")
+                        + ", model: " + map.getString("model")
+                        + ", product: " + map.getString("product")
+                        + ", board: " + map.getString("board")
+                        + ", fingerprint: " + map.getString("fingerprint")
+                        + ", stack trace: " + Log.getStackTraceString(ex));
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void setHandler(ExceptionWearHandler exceptionWearHandler){
+        mExceptionWearHandler = exceptionWearHandler;
     }
 }
