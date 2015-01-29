@@ -40,7 +40,7 @@ Wear app:
 public class WearableApplication extends Application {
     public void onCreate() {
         //...
-        ExceptionWearApp.initialize(this);
+        ExceptionWear.initialize(this);
     }
 }
 ```
