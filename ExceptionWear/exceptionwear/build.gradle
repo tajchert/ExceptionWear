@@ -31,4 +31,4 @@ dependencies {
     provided 'com.google.android.gms:play-services:6.5.87'
 }
 
-//apply from: 'maven-push.gradle'
+apply from: 'maven-push.gradle'
