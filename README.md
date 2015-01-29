@@ -34,6 +34,26 @@ Maven:
 
 [Maven Central Link](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22pl.tajchert%22%20AND%20a%3A%22exceptionwear%22)
 
+###Code
+Wear app:
+```java
+public class WearableApplication extends Application {
+    public void onCreate() {
+        //...
+        ExceptionWearApp.initialize(this);
+    }
+}
+```
+Phone (optional if you need custom handler):
+```java
+public class PhoneApplication extends Application {
+    public void onCreate() {
+        //...
+        ExceptionDataListenerService.setHandler(new CustomExceptionHandler());//need to implements ExceptionWearHandler
+    }
+}
+```
+
 ###License
 
 ExceptionWear binaries and source code can be used according to the [Apache License, Version 2.0](LICENSE).
