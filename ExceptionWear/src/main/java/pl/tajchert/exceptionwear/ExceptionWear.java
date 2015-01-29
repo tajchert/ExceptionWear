@@ -1,12 +1,12 @@
 package pl.tajchert.exceptionwear;
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 
+import pl.tajchert.exceptionwear.wear.WearExceptionTools;
 
-public class ExceptionWearApp {
-    private static final String TAG = "ExceptionWearApp";
+
+public class ExceptionWear {
     private static Context mContext;
     private static Thread.UncaughtExceptionHandler mDefaultUEH;
 
@@ -22,7 +22,7 @@ public class ExceptionWearApp {
             if(mContext == null){
                 return;
             }
-            Log.d(TAG, "uncaughtException :" + ex.getMessage());
+            Log.d(WearExceptionTools.EXCEPTION_WEAR_TAG, "uncaughtException :" + ex.getMessage());
             // Pass the exception to a Service which will send the data upstream to your Smartphone/Tablet
             ExceptionService.reportException(mContext, ex);
 

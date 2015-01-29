@@ -10,8 +10,9 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
+import pl.tajchert.exceptionwear.wear.WearExceptionTools;
+
 public class ExceptionDataListenerService extends WearableListenerService {
-    private static final String TAG = "WearDataListenerService";
     private static ExceptionWearHandler mExceptionWearHandler;
 
     @Override
@@ -36,7 +37,7 @@ public class ExceptionDataListenerService extends WearableListenerService {
             if(mExceptionWearHandler != null){
                 mExceptionWearHandler.handleException(ex, map);
             } else {
-                Log.e(TAG, "Error from Wear" + ex.getMessage()
+                Log.e(WearExceptionTools.EXCEPTION_WEAR_TAG, "Error from Wear" + ex.getMessage()
                         + ", manufacturer: " + map.getString("manufacturer")
                         + ", model: " + map.getString("model")
                         + ", product: " + map.getString("product")

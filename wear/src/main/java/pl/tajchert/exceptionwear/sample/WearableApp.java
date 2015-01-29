@@ -2,7 +2,7 @@ package pl.tajchert.exceptionwear.sample;
 
 import android.app.Application;
 
-import pl.tajchert.exceptionwear.ExceptionWearApp;
+import pl.tajchert.exceptionwear.ExceptionWear;
 
 
 public class WearableApp extends Application {
@@ -10,6 +10,6 @@ public class WearableApp extends Application {
     public void onCreate() {
         super.onCreate();
 
-        ExceptionWearApp.initialize(this);
+        ExceptionWear.initialize(this);
     }
 }

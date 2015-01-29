@@ -13,18 +13,17 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 import pl.tajchert.exceptionwear.wear.SendByteArrayToNode;
+import pl.tajchert.exceptionwear.wear.WearExceptionTools;
 
 
 public class ExceptionService extends IntentService {
-    private static final String TAG = ExceptionService.class.getSimpleName();
-
-    private static final String EXTRA_EXCEPTION = TAG + "/EXTRA_EXCEPTION";
+    private static final String EXTRA_EXCEPTION = WearExceptionTools.EXCEPTION_WEAR_TAG + "/EXTRA_EXCEPTION";
 
     private ByteArrayOutputStream bos;
     private ObjectOutputStream oos;
 
     public ExceptionService() {
-        super(TAG);
+        super(WearExceptionTools.EXCEPTION_WEAR_TAG);
     }
 
     @Override
@@ -54,7 +53,7 @@ public class ExceptionService extends IntentService {
             oos = new ObjectOutputStream(bos);
             oos.writeObject(intent.getSerializableExtra(EXTRA_EXCEPTION));
         } catch (IOException e) {
-            Log.e(TAG, "createExceptionInformation error while getting exception information.");
+            Log.e(WearExceptionTools.EXCEPTION_WEAR_TAG, "createExceptionInformation error while getting exception information.");
         }
 
         byte[] exceptionData = bos.toByteArray();
