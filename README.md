@@ -17,7 +17,7 @@ After receiving exception on a phone you can throw it, save it for any crash rep
 Gradle:
 ```gradle
     //library:
-    compile 'pl.tajchert:exceptionwear:0.1.0'
+    compile 'pl.tajchert:exceptionwear:0.1.1'
     //needed dependency:
     compile 'com.google.android.gms:play-services-wearable:+'
 ```
@@ -28,7 +28,7 @@ Maven:
 <dependency>
     <groupId>pl.tajchert</groupId>
     <artifactId>exceptionwear</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
 </dependency>
 ```
 
@@ -60,4 +60,4 @@ ExceptionWear binaries and source code can be used according to the [Apache Lice
 
 ###Thanks
 
-Goes to Sebastian Mauer for that [gist](https://gist.github.com/mauimauer/c6f40ec89863906e3b7a) (whole library is based on it), and also to David Vavra - for giving an idea to make it happen and sharing ideas.
+Goes to Sebastian Mauer for that [gist](https://gist.github.com/mauimauer/c6f40ec89863906e3b7a) (whole library is based on it), and also to: Aleksander Piotrowski, David Vavra.
