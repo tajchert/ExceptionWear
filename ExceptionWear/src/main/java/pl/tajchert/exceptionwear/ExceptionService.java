@@ -1,6 +1,7 @@
 package pl.tajchert.exceptionwear;
 
 import android.app.IntentService;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 
@@ -18,9 +19,12 @@ import java.util.List;
 
 
 public class ExceptionService extends IntentService {
+    private static final String TAG = ExceptionService.class.getSimpleName();
+
+    private static final String EXTRA_EXCEPTION = TAG + "/EXTRA_EXCEPTION";
 
     public ExceptionService() {
-        super("ErrorService");
+        super(TAG);
     }
 
     private List<String> getNodes(GoogleApiClient mGoogleApiClient) {
@@ -48,7 +52,7 @@ public class ExceptionService extends IntentService {
 
         try {
             oos = new ObjectOutputStream(bos);
-            oos.writeObject(intent.getSerializableExtra("exception"));
+            oos.writeObject(intent.getSerializableExtra(EXTRA_EXCEPTION));
 
             byte[] exceptionData = bos.toByteArray();
             DataMap dataMap = new DataMap();
@@ -82,5 +86,11 @@ public class ExceptionService extends IntentService {
                 // ignore close exception
             }
         }
+    }
+
+    public static void reportException(Context context, Throwable ex) {
+        Intent errorIntent = new Intent(context, ExceptionService.class);
+        errorIntent.putExtra(EXTRA_EXCEPTION, ex);
+        context.startService(errorIntent);
     }
 }
