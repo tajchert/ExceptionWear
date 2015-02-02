@@ -1,7 +1,7 @@
 ExceptionWear - library for handling Exceptions on Android Wear
 =======
 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/pl.tajchert/exceptionwear/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/pl.tajchert/exceptionwear)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-ExceptionWear-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/1470) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/pl.tajchert/exceptionwear/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/pl.tajchert/exceptionwear)
 
 
 ExceptionWear (:exclamation::watch:) is very simple library to solve problem of not passing exceptions from Android Wear devices to the phone. So if you release an app for smartwatches to Google Play and it will crash (and it will) you won't get any information about it (sic!).
