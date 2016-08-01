@@ -65,6 +65,7 @@ public class ExceptionService extends IntentService {
         dataMap.putString("model", Build.MODEL);
         dataMap.putString("manufacturer", Build.MANUFACTURER);
         dataMap.putString("product", Build.PRODUCT);
+        dataMap.putString("api_level", Integer.toString(Build.VERSION.SDK_INT));
 
         dataMap.putByteArray("exception", exceptionData);
 

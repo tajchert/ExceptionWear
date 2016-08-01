@@ -42,7 +42,8 @@ public class ExceptionDataListenerService extends WearableListenerService {
                         + ", model: " + map.getString("model")
                         + ", product: " + map.getString("product")
                         + ", board: " + map.getString("board")
-                        + ", fingerprint: " + map.getString("fingerprint"));
+                        + ", fingerprint: " + map.getString("fingerprint")
+                        + ", api_level: " + map.getString("api_level"));
                 throw new RuntimeException(throwableException);
             }
 

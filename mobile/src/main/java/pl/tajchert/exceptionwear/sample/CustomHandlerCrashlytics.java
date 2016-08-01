@@ -25,6 +25,8 @@ public class CustomHandlerCrashlytics implements ExceptionWearHandler{
         Crashlytics.setString("model", map.getString("model"));
         Crashlytics.setString("manufacturer", map.getString("manufacturer"));
         Crashlytics.setString("product", map.getString("product"));
+        Crashlytics.setString("api_level", map.getString("api_level"));
+
         Crashlytics.logException(throwable);
 
         Log.e(TAG, "Received exception from Wear" + throwable.getMessage()
@@ -32,6 +34,7 @@ public class CustomHandlerCrashlytics implements ExceptionWearHandler{
                 + ", model: " + map.getString("model")
                 + ", product: " + map.getString("product")
                 + ", fingerprint: " + map.getString("fingerprint")
+                + ", api_level: " + map.getString("api_level")
                 + ", stack trace: " + Log.getStackTraceString(throwable));
     }
 }

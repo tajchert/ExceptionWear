@@ -22,6 +22,7 @@ public class CustomHandlerLog implements ExceptionWearHandler{
                 + ", model: " + map.getString("model")
                 + ", product: " + map.getString("product")
                 + ", fingerprint: " + map.getString("fingerprint")
+                + ", api_level: " + map.getString("api_level")
                 + ", stack trace: " + Log.getStackTraceString(throwable));
     }
 }
