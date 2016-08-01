@@ -28,6 +28,6 @@ dependencies {
     wearApp project(':wear')
     compile project(':exceptionwear')
     compile 'com.android.support:appcompat-v7:21.0.3'
-    compile 'com.google.android.gms:play-services:6.5.87'
+    compile 'com.google.android.gms:play-services-wearable:9.2.1'
     compile 'com.crashlytics.android:crashlytics:1.+'
 }
