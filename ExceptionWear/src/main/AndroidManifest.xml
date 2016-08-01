@@ -12,7 +12,8 @@
         android:name="pl.tajchert.exceptionwear.ExceptionDataListenerService"
         tools:node="replace"  >
         <intent-filter>
-            <action android:name="com.google.android.gms.wearable.BIND_LISTENER" />
+            <action android:name="com.google.android.gms.wearable.MESSAGE_RECEIVED" />
+            <data android:scheme="wear" android:host="*" android:pathPrefix="/exceptionwear/wear_error" />
         </intent-filter>
     </service>
 
